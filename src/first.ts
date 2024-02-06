@@ -1,11 +1,13 @@
-var greet = "Hi! Birender";
-var b = 5;
-var c: boolean = false  // var c = false 
+// var greet = "Hi! Birender";
+// var b = 5;
+// var c: boolean = false  // var c = false
 
-var someArray: string[] = [] // in case if we want to push any type of variable in array, use type any[]
-someArray.push(greet);
-someArray.push(b as any);   // other method of using any is by casting
-console.log(someArray);
+// var someArray: string[] = [] // in case if we want to push any type of variable in array, use type any[]
+// someArray.push(greet);
+// someArray.push(b as any);   // other method of using any is by casting
+// console.log(someArray);
+
+import { IServer } from "./Server";
 
 //typescript also provide interface to define the type of function inputs  -- these interfaces and parameters don't exists during runtime
 interface Personz {
