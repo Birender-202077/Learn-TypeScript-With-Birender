@@ -7,7 +7,7 @@ someArray.push(a);
 someArray.push(b as any);   // other method of using any is by casting
 console.log(someArray);
 
-//typescript also provide interface to define the type of function inputs
+//typescript also provide interface to define the type of function inputs  -- these interfaces and parameters don't exists during runtime
 interface Person {
     firstName: string,
     lastName: string,
@@ -26,9 +26,30 @@ function generateEmail(input: Person, force?: boolean): string | undefined {
     return `${input.firstName}234${input.lastName}@gmail.com`
 }
 
-console.log(generateEmail({
-    firstName: 'birender',
-    lastName: 'singh',
-    job: 'Engineer',
-    isVisitor: true
-}, true))
+//checking and making for if person is valid or not by making type guards 
+function isPerson(potentialUser: any): boolean {
+    if ('firstName' in potentialUser && 'lastName' in potentialUser) {
+        return true;
+    }
+    else {
+        return false
+    }
+}
+
+//prinitng the input if the person is valid 
+function printEmailIfPerson(potentialUser: any): void {
+    if (isPerson(potentialUser)) {
+        console.log(generateEmail(potentialUser))
+    } else {
+        console.log('Input is not a person')
+    }
+}
+
+printEmailIfPerson({
+    firstName: 'abc',
+    lastName: 'decf'
+})
+
+async function someAsync() {
+    return 'async'
+}
