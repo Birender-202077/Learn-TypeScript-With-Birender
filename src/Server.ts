@@ -1,10 +1,13 @@
+interface IServer {
 
+    startServer(): void
+    stopServer(): void
+}
 
 // classes can have 2 things -- 1. instances variables amnd 2. constructors
-class Server {
-
-    port: number;
-    address: string;
+class Server implements IServer {
+    public port: number;
+    public address: string;
 
     constructor(port: number, address: string) {
         this.port = port;
@@ -14,7 +17,11 @@ class Server {
     startServer() {
         console.log(`Server started at: ${this.address}//::${this.port}`)
     }
+    stopServer(): void { }
 }
+
 //creating object 
-const startSomeServer = new Server(301, 'localhost') // the new will call the constructor of server class.
-startSomeServer.startServer();
+const someServer: IServer = new Server(8080, 'localhost');
+someServer.startServer();
+// const serverPort = (startSomeServer as any).port;
+// console.log(serverPort)

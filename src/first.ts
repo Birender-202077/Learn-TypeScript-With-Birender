@@ -1,14 +1,14 @@
-var a = "Hi! Birender";
+var greet = "Hi! Birender";
 var b = 5;
 var c: boolean = false  // var c = false 
 
 var someArray: string[] = [] // in case if we want to push any type of variable in array, use type any[]
-someArray.push(a);
+someArray.push(greet);
 someArray.push(b as any);   // other method of using any is by casting
 console.log(someArray);
 
 //typescript also provide interface to define the type of function inputs  -- these interfaces and parameters don't exists during runtime
-interface Person {
+interface Personz {
     firstName: string,
     lastName: string,
     job?: job, //we can also create optional props using ?
@@ -19,7 +19,7 @@ interface Person {
 type job = 'Engineer' | 'Programmer';
 
 //functions can also have types
-function generateEmail(input: Person, force?: boolean): string | undefined {
+function generateEmail(input: Personz, force?: boolean): string | undefined {
     if (input.isVisitor && !force) {
         return undefined
     }
